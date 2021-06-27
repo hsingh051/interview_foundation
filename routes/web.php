@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/update/github-token', 'UserController@updateGithubToken')->name('updateGithubToken');
+Route::post('/user-repositories', 'UserController@getRepositories')
+    ->name('user.repositories');
